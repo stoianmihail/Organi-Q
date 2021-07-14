@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+    *,
+    body {
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+
+    .circle {
+        position: fixed;
+        width: 250px;
+        height: 250px;
+        filter: blur(25px);
+        opacity: 0.7;
+        border-radius: 9999px;
+        background-blend-mode: multiply;
+        top: 0;
+        left: 0;
+
+        border-radius: 280px 500px 50px 100px;
+
+        background: rgba(0, 255, 181, 0.25);
+
+
+
+        transition: all 0.2s ease-in-out;
+    }
+
+    .full-bg {
+        background-image: url(https://images.squarespace-cdn.com/content/v1/5c53262ff793924c8f552495/1555821409607-R9I2MNZPGI2YJZNH5TH4/jongsun-lee-712920-unsplash.jpg);/*url(../../../images/quantum-unsplash.jpg);*/
+        background-position: center center;
+        background-size: cover;
+        /*position: fixed;
+        margin: auto;
+        height: 100vh;
+        width: 100vw;
+        */
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        position: fixed;
+        text-align:center;
+        margin:auto;
+        padding:0;
+        z-index: -99;
+        transition: all 0.3s ease-in;
+    }
+
+    .overlay{
+        background: rgba(0, 0, 0, 0.219);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: -3;
+    }
+
+    .loginBox {
+        z-index: 10;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login {
+        padding: 2em;
+        width: min(30rem, 80%);
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        background: rgba(5, 0, 0, 0.35);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(9.5px);
+        -webkit-backdrop-filter: blur(9.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+    }
+
+    .login .welcome h2,
+    h3 {
+        color: white;
+        letter-spacing: 4px;
+        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    .login .welcome h3 {
+        font-size: 1.7em;
+
+
+    }
+
+    .login input {
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        font-weight: 900;
+        letter-spacing: 4px;
+        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.6);
+        margin-top: 7px;
+        margin-bottom: 7px;
+        border: none;
+        outline: none;
+        width: 120px;
+        padding: 0.5em;
+        background: transparent;
+        border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+        border-left: 3px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in;
+    }
+
+    .login input::placeholder {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 900;
+
+        letter-spacing: 4px;
+        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    .login input:hover {
+        width: 95%;
+        border-right: 3px solid rgba(0, 0, 0, 0.1);
+        border-top: 3px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.3);
+
+    }
+
+    .login input:focus {
+        width: 95%;
+        border-right: 3px solid rgba(0, 0, 0, 0.1);
+        border-top: 3px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.8);
+        border-image: linear-gradient(to left, #79ff00, rgba(78, 78, 78, 1), #00ff91) 30;
+    }
+
+    .login .buttons {
+        width: 100%;
+
+
+    }
+
+    .login button {
+        cursor: pointer;
+        width: 135px;
+        height: 35px;
+        margin-top: 7px;
+        border: none;
+        outline: none;
+        background: black;
+        color: white;
+        font-weight: 900;
+        letter-spacing: 4px;
+        text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.6);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .login button:hover,
+    .login button:focus {
+        transform: scale(0.95);
+    }
+
+    .hide {
+      display:none
+    }

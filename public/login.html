@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Organi-Q - Login</title>
+  <link rel="stylesheet" href="css/login.css">
+  <script src='https://www.gstatic.com/firebasejs/live/4.9/firebase.js'></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="overlay"></div>
+    <div class="full-bg"></div>
+    <div class="loginBox">
+        <div id="signin" class="login">
+            <div class="welcome">
+                <h2>Welcome to</h2>
+                <h3>ORGANI-Q</h3>
+            </div>
+            <input id="signin-email" placeholder="E-mail" type="text" />
+            <input id="signin-password" placeholder="Password" type="password" />
+            <div class="buttons">
+                <button id="signin-login-button">Login</button>
+                <button id="signin-register-button">Register</button>
+            </div>
+        </div>
+        <div id="signup" class="login hide">
+            <div class="welcome">
+                <h2>Welcome to</h2>
+                <h3>ORGANI-Q</h3>
+            </div>
+            <input id="signup-username" placeholder="Username" type="text" />
+            <input id="signup-email" placeholder="E-mail" type="text" />
+            <input id="signup-password" placeholder="Password" type="password" />
+            <div class="buttons">
+                <button id="signup-register-button">Register</button>
+                <!--<button id="register-button">Register</button>-->
+            </div>
+        </div>
+    </div>
+<!-- partial -->
+  <script src="js/login.js"></script>
+
+</body>
+</html>
