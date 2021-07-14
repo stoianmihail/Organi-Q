@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
   
   auth.onAuthStateChanged(firebaseUser => {
+    console.log(firebaseUser.uid);
     if (firebaseUser) {
       console.log("inside");
       register(firebaseUser.uid);

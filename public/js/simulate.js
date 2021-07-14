@@ -13,14 +13,57 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var signout_button = document.getElementById("signout-button");
   var simulator = document.getElementById("simulator");
   
+  var term = null;
+  function buildTerminal() {
+    term = new VanillaTerminal({
+      welcome: 'Welcome to <a href="">Organi-Q</a> terminal!',
+      commands: {
+        flavour: (terminal) => {
+          terminal.output('There is only one flavour for your favorite🍦and it is <b>vanilla<b>.')
+          terminal.setPrompt('@soyjavi <small>❤️</small> <u>vanilla</u> ');
+        },
+
+        async: (terminal) => {
+          terminal.idle();
+          setTimeout(() => terminal.output('Async 300'), 300);
+          setTimeout(() => terminal.output('Async 1300'), 1300);
+          setTimeout(() => {
+            terminal.output('Async 2000');
+            terminal.setPrompt();
+          }, 2000);
+        },
+      },
+
+      // welcome: 'Welcome...',
+      // prompt: 'soyjavi at <u>Macbook-Pro</u> ',
+      separator: '$',
+    });
+
+    term.onInput((command, parameters) => {
+      console.log('⚡️onInput', command, parameters);
+    });
+  
+    term.setPrompt(`${username}`);
+    
+    /*
+    term.prompt('Your name', (name) => {
+      term.output(`Hi ${name}!`);
+      term.setPrompt(`${name} `);
+    });
+    */
+  }
+  
   // Continous check.
   var state = false;
+  var username = null;
   auth.onAuthStateChanged(firebaseUser => {
-    console.log(firebaseUser + " state: " + state);
+    console.log(firebaseUser)
+    console.log("state: " + state);
     if (firebaseUser) {
       db.child('users/' + firebaseUser.uid).once('value', snapshot => {
         if (snapshot.exists()) {
-          console.log(snapshot)
+          username = snapshot.val().username;
+          buildTerminal();
         } else {
           console.log('No username in the database!');
         }
@@ -55,7 +98,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
     }, 1000);
   }
-
   
   simulator.onclick = function(e) {
     var fiveMinutes = 60 * 2 + 23, display = document.querySelector('#time');
