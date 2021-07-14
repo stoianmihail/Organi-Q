@@ -10,20 +10,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const db = firebase.database().ref();
   const auth = firebase.auth();
   
+  var signout_button = document.getElementById("signout-button");
+  
+  // Continous check.
+  var state = false;
   auth.onAuthStateChanged(firebaseUser => {
+    console.log(firebaseUser + " state: " + state);
     if (firebaseUser) {
-      console.log("inside");
-      db.child("users/" + firebaseUser.uid).once("value", snapshot => {
+      db.child('users/' + firebaseUser.uid).once('value', snapshot => {
         if (snapshot.exists()) {
           console.log(snapshot)
-          // TODO
         } else {
-          console.log("baaa");
+          console.log('No username in the database!');
         }
       });
+    } else if (state === false) {
+      window.location = '/login.html';
     } else {
-      console.log("not!");
-      window.location = "/login.html"
+      window.location = '/index.html';
     }
   });
+  
+  signout_button.onclick = function(e) {
+    e.preventDefault();
+    state = true;
+    auth.signOut();
+  }
 });

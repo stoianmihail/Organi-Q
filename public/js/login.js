@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   function register(uid) {
     db.child("users/" + uid).once("value", snapshot => {
       if (snapshot.exists()) {
-        window.location = "/simulate.html"
+        window.location = "simulate.html"
       } else {
 				// Sign up? Check for username
         if (username === null) {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           db.child("users/" + uid).set({
             username: username,
 					}).then(ret => {
-            window.location = "/simulate.html";
+            window.location = "simulate.html";
           }).catch(err => {
             console.error(err);
           });
