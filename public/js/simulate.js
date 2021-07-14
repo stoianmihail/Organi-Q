@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   var config = {
-      apiKey: "AIzaSyBKfFDV8_NLF0AiCloo1stQVgCTURZUudQ",
-      authDomain: "organi-q.firebaseapp.com",
-      databaseURL: "https://organi-q-default-rtdb.firebaseio.com",
-			storageBucket: "organi-q.appspot.com"  
+      apiKey: "AIzaSyDZ61I9wPnYLgK9RxaKWwnzHEyPp57vy2Y",
+      authDomain: "meet-organi-q.firebaseapp.com",
+      databaseURL: "https://meet-organi-q-default-rtdb.firebaseio.com/",
+			storageBucket: "meet-organi-q.appspot.com"  
   };
   firebase.initializeApp(config);
 
   const db = firebase.database().ref();
   const auth = firebase.auth();
-
+  
   auth.onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log("inside");
-      db.child("users/").once("value", snapshot => {
+      db.child("users/" + firebaseUser.uid).once("value", snapshot => {
         if (snapshot.exists()) {
           console.log(snapshot)
           // TODO
