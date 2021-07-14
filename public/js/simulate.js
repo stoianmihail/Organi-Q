@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const auth = firebase.auth();
   
   var signout_button = document.getElementById("signout-button");
+  var simulator = document.getElementById("simulator");
   
   // Continous check.
   var state = false;
@@ -35,5 +36,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     e.preventDefault();
     state = true;
     auth.signOut();
+  }
+  
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+      ms = parseInt(timer % 100, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+        timer = duration;
+      }
+    }, 1000);
+  }
+
+  
+  simulator.onclick = function(e) {
+    var fiveMinutes = 60 * 2 + 23, display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
   }
 });
