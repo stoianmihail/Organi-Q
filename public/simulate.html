@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/simulate.css">
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/arrows.css">
+<link rel="stylesheet" href="css/button.css">
 </head>
 <body>
 <!--<button id="signout-button">Sign Out</button>-->
@@ -50,7 +51,8 @@
 
 <!-- partial:index.partial.html -->
 <div class="container"> 
-<section id="fancyTabWidget" class="tabs t-tabs">
+<!-- Change the position of the tabs -->
+<section id="fancyTabWidget" class="tabs t-tabs" style="margin-top: 15vh;">
         <ul class="nav nav-tabs fancyTabs" role="tablist">
         
                     <li class="tab fancyTab active">
@@ -115,8 +117,45 @@
                         			<h2>Run the simulation.</h2>
                               <p>The simulation will start once the button is pressed.</p>
                               <p>When the countdown has finished, you can export your freshly backed hopping rates!</p>
-                              <button id="simulator">Enter the quantum realm!</button>
-                              <div>Simulation finishes in <span id="time">--:--</span> minutes!</div>
+                              
+                              
+                              
+                              <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                  <defs>
+                                      <filter id="gooey">
+                                          <!-- in="sourceGraphic" -->
+                                          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                                          <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                                          <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+                                      </filter>
+                                  </defs>
+                              </svg>
+
+                              <button id="simulator">
+                                  <span id="text">Enter the quantum realm!</span>
+                                  <span id="bubbles" class="bubbles">
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                      <span class="bubble"></span>
+                                  </span>
+                              </button>
+                              
+                              
+                              
+                              
+                              
+                              <!--<button id="simulator">Enter the quantum realm!</button>-->
+                              
+                              
+                              
+                              <div id="countdown" class="hide"><h4>Simulation finishes in <span id="time">--:--</span> minutes!<h4></div>
                         </div>
                       </div>
                     </div>

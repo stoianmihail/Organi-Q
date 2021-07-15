@@ -81,9 +81,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     auth.signOut();
   }
   
+  function exportData() {
+    document.getElementById("text").innerHTML = `Done!`;
+    document.getElementById("bubbles").classList.add("hide");
+  }
+  
   function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    id = setInterval(function () {
       minutes = parseInt(timer / 60, 10);
       seconds = parseInt(timer % 60, 10);
       ms = parseInt(timer % 100, 10);
@@ -94,13 +99,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
       display.textContent = minutes + ":" + seconds;
 
       if (--timer < 0) {
+        clearInterval(id);
+        return exportData();
         timer = duration;
       }
     }, 1000);
   }
   
   simulator.onclick = function(e) {
-    var fiveMinutes = 60 * 2 + 23, display = document.querySelector('#time');
+    document.getElementById("countdown").classList.remove("hide");
+    document.getElementById("text").innerHTML = `Simulating..`;
+    var fiveMinutes = 10;//60 * 2 + 23;
+    var display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
   }
 });
