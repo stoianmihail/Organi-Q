@@ -45,4 +45,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
       window.location = '/login.html';
     }
   });
+  
+  var mainSignin = document.getElementById("main-signin-button");
+  var mainSignout = document.getElementById("main-signout-button");
+  
+  mainSignin.onclick = function(e) {
+    e.preventDefault();
+    window.location = '/login.html';
+  }
+  
+  mainSignout.onclick = function(e) {
+    auth.signOut();
+    window.location = '/index.html';
+  }
+  
+  auth.onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+      mainSignin.classList.add('hide');
+      mainSignout.classList.remove('hide');
+    } else {
+      mainSignin.classList.remove('hide');
+      mainSignout.classList.add('hide');
+    }
+  });
 });

@@ -5,13 +5,47 @@
   <title>Organi-Q - Simulate</title>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <script src='https://www.gstatic.com/firebasejs/live/4.9/firebase.js'></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700'><link rel="stylesheet" href="css/simulate.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700'>
 <link href="https://fonts.googleapis.com/css?family=Fira+Mono">
+<link rel="stylesheet" href="css/simulate.css">
+<link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
-<button id="signout-button">Sign Out</button>
+<!--<button id="signout-button">Sign Out</button>-->
+
+
+<nav id="navbar" class="">
+  <div class="nav-wrapper">
+    <!-- Navbar Logo -->
+    <div class="logo">
+      <!-- Logo Placeholder for Inlustration -->
+      <a href="index.html"><i class=""></i><img src="images/logo-1.png"></a>
+    </div>
+
+    <!-- Navbar Links -->
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li><!--
+   --><li><a href="#services">Services</a></li><!--
+   --><li><a id="simulate" title="simulate" href="#">Simulate</a></li><!--
+   --><li><a href="#contact">Contact</a></li>
+     <li><a id="signout-button" href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<!-- Menu Icon -->
+<div class="menuIcon">
+  <span class="icon icon-bars"></span>
+  <span class="icon icon-bars overlay"></span>
+</div>
+
+
 
 <!-- partial:index.partial.html -->
 <div class="container"> 
@@ -75,23 +109,18 @@
                             </div>
                     </div>
                     <div class="tab-pane  fade" id="tabBody3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true" tabindex="0">
-                    <div class="row">
+                      <div class="row">
                         <div class="col-md-12">
                         			<h2>Run the simulation.</h2>
                               <p>The simulation will start once the button has been pressed.</p>
                               <p>When the countdown has finished, you can export your freshly backed hopping rates!</p>
                               <button id="simulator">Enter the quantum realm!</button>
                               <div>Simulation finishes in <span id="time">--:--</span> minutes!</div>
-                              <div id="vanilla-terminal"></div>
                         </div>
-                        
-
-                    
-                        
-                        
-                        
+                      </div>
                     </div>
-              </div>
+                  <div id="vanilla-terminal"></div>
+                        
         </div>
 
     </section>
