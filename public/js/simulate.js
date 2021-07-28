@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   simulator.onclick = function(e) {
     document.getElementById("countdown").classList.remove("hide");
     document.getElementById("text").innerHTML = `Simulating..`;
-    var fiveMinutes = 10;//60 * 2 + 23;
+    var fiveMinutes = 5;//60 * 2 + 23;
     var display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
   }
