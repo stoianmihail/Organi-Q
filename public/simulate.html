@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type='text/javascript' > 
+  var stack = []; 
+</script>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
 <!-- Folder structure -->
@@ -72,20 +75,52 @@
 <div class="container"> 
 
 
-<div>
-<div style="width: 15%; float:left; margin-left: 0%; margin-top: 15vh;">
-  <div class="rounded shadow-xl w-full bg-white p-5 text-gray-700" style="max-width:900px; ">
-      <h1 class="text-3xl font-semibold leading-tight text-indigo-500">data</h1>
-      <hr class="my-5 -mx-5">
-      <div class="-mx-5" x-data="fileTree()">
-          <ul>
-              <template x-for="(level,i) in levels">
-                  <li x-html="renderLevel(level,i)"></li>
-              </template>
-          </ul>
-      </div>
+<div id="folder-without-result" class="hide" id="file-tree">
+  <div style="width: 15%; float:left; margin-left: 0%; margin-top: 15vh;">
+    <div class="rounded shadow-xl w-full bg-white p-5 text-gray-700" style="max-width:900px; ">
+        <h1 class="text-3xl font-semibold leading-tight text-indigo-500">data</h1>
+        <hr class="my-5 -mx-5">
+        <div class="-mx-5" x-data="fileTree()">
+            <ul>
+                <template x-for="(level,i) in levels">
+                    <li x-html="renderLevel(level,i)"></li>
+                </template>
+            </ul>
+        </div>
+    </div>
   </div>
 </div>
+
+<div id="folder-with-result" class="hide">
+  <div style="width: 15%; float:left; margin-left: 0%; margin-top: 15vh;">
+    <div class="rounded shadow-xl w-full bg-white p-5 text-gray-700" style="max-width:900px; ">
+        <h1 class="text-3xl font-semibold leading-tight text-indigo-500">data</h1>
+        <hr class="my-5 -mx-5">
+        <div class="-mx-5" x-data="fileTreeWith()">
+            <ul>
+                <template x-for="(level,i) in levels">
+                    <li x-html="renderLevel(level,i)"></li>
+                </template>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="folder-with-all" class="hide">
+  <div style="width: 15%; float:left; margin-left: 0%; margin-top: 15vh;">
+    <div class="rounded shadow-xl w-full bg-white p-5 text-gray-700" style="max-width:900px; ">
+        <h1 class="text-3xl font-semibold leading-tight text-indigo-500">data</h1>
+        <hr class="my-5 -mx-5">
+        <div class="-mx-5" x-data="fileTreeAll()">
+            <ul>
+                <template x-for="(level,i) in levels">
+                    <li x-html="renderLevel(level,i)"></li>
+                </template>
+            </ul>
+        </div>
+    </div>
+  </div>
 </div>
 
 <!-- Change the position of the tabs -->
@@ -95,25 +130,13 @@
         
                     <li class="tab fancyTab active">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>	
-                        <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-desktop"></span><span class="hidden-xs">Geometry</span></a>
+                        <a id="tab0" href="#tabBody0" role="tab" aria-controls="tabBody0" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-desktop"></span><span class="hidden-xs">Visualization</span></a>
                     	<div class="whiteBlock"></div>
                     </li>
                     
                     <li class="tab fancyTab">
                     <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab1" href="#tabBody1" role="tab" aria-controls="tabBody1" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-firefox"></span><span class="hidden-xs">Orbitals</span></a>
-                        <div class="whiteBlock"></div>
-                    </li>
-                    
-                    <li class="tab fancyTab">
-                    <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab2" href="#tabBody2" role="tab" aria-controls="tabBody2" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-envira"></span><span class="hidden-xs">Morphology</span></a>
-                        <div class="whiteBlock"></div>
-                    </li>
-                    
-                    <li class="tab fancyTab">
-                    <div class="arrow-down"><div class="arrow-down-inner"></div></div>
-                        <a id="tab3" href="#tabBody3" role="tab" aria-controls="tabBody3" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-mortar-board"></span><span class="hidden-xs">Run</span></a>
+                        <a id="tab3" href="#tabBody3" role="tab" aria-controls="tabBody3" aria-selected="true" data-toggle="tab" tabindex="0"><span class="fa fa-paper-plane-o" aria-hidden="true"></span><span class="hidden-xs">Run</span></a>
                         <div class="whiteBlock"></div>
                     </li> 
         </ul>
@@ -123,32 +146,15 @@
                         	<div class="row">
                             	
                                 <div class="col-md-12" style="font-size:16px;">
-                        			<h2>Geometry.</h2>
+                        			<!--<h2>Visualization.</h2>-->
+                        			<img id="sim-img" style="margin-left: auto; margin-right: auto; margin-top: 15px; margin-bottom: 15px; display: block" src="images/mc-simulation.jpg" class="hide"></img>
                                     <p></p>
                                 </div>
                                 
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane  fade" id="tabBody1" role="tabpanel" aria-labelledby="tab1" aria-hidden="true" tabindex="0">
-                        <div class="row">
-                            	
-                                <div class="col-md-12" style="font-size:16px;">
-                        			<h2>Orbitals.</h2>
-                                    <p></p>
-                                
-                                </div>
-                            </div>
-                    </div>
-                    <div class="tab-pane  fade" id="tabBody2" role="tabpanel" aria-labelledby="tab2" aria-hidden="true" tabindex="0">
-                        <div class="row">
-                                <div class="col-md-12" style="font-size:16px;">
-                        			<h2>Morphology.</h2>
-                                    <p></p>
-                                  
-                                </div>
-                            </div>
-                    </div>
+
                     <div class="tab-pane  fade" id="tabBody3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true" tabindex="0">
                       <div class="row">
                         <div class="col-md-12" style="font-size:16px;">
@@ -211,7 +217,12 @@
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script><script  src="js/extra_simulate.js"></script>
+  
   <script src="js/simulate.js"></script>
+  <script src="js/folder_w.js"></script>
+  <script src="js/folder_o.js"></script>
+  <script src="js/folder_a.js"></script>
+  
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script src='https://cdn.jsdelivr.net/npm/alpinejs@2.5.0/dist/alpine.min.js'></script>
    <script src="js/vanilla-terminal.js"></script>
