@@ -9,7 +9,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type='text/javascript' > 
-  var stack = []; 
+  var stack = [];
+  function test() {
+    console.log("isnide test");
+    document.getElementById("button-modal").click();
+  }
 </script>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
@@ -26,7 +30,36 @@
 </head>
 <body>
 <!--<button id="signout-button">Sign Out</button>-->
+<!-- Button trigger modal -->
 
+<div id="modal">
+  <button type="button" class="hidden" id="button-modal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{</p>
+          <p>&ensp;shots: 1024,</p>
+          <p>&ensp;interval: 10ms</p>
+          <p>}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <nav id="navbar" class="">
   <div class="nav-wrapper">

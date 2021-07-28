@@ -110,10 +110,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
       if (--timer < 0) {
         clearInterval(id);
-        folderWithout.setAttribute("x-data", fileTreeWith());
-        updateDiv();
-        //folderWithout.classList.add("hide");
-        //folderWith.classList.remove("hide");
+        //folderWithout.setAttribute("x-data", fileTreeWith());
+        //updateDiv();
+        folderWithout.classList.add("hide");
+        folderWith.classList.remove("hide");
         console.log("show here");
         return exportData();
         // timer = duration;
