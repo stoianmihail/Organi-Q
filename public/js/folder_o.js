@@ -2,7 +2,7 @@ let fileTree = function() {
       return {
           levels: [
               {
-                  title: 'root',
+                  title: 'root_pentacene/',
                   children: [
                       {
                           title: 'qsim_input/',
@@ -30,7 +30,7 @@ let fileTree = function() {
                                 title: 'hamiltonian/',
                                 children: [
                                   {
-                                    title: 'H_rubene.TSHS',
+                                    title: 'H_pentacene.TSHS',
                                   }
                                 ],
                               },
@@ -38,7 +38,7 @@ let fileTree = function() {
                                 title: 'phonons/',
                                 children: [
                                   {
-                                    title: 'dyn_matrix.json',
+                                    title: 'dyn_matrix.dat',
                                   }
                                 ],
                               }

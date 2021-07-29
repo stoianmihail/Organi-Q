@@ -2,7 +2,7 @@ let fileTreeAll = function() {
       return {
           levels: [
               {
-                  title: 'root',
+                  title: 'root_pentacene/',
                   children: [
                       {
                           title: 'qsim_input/',
@@ -30,7 +30,7 @@ let fileTreeAll = function() {
                                 title: 'hamiltonian/',
                                 children: [
                                   {
-                                    title: 'H_rubene.TSHS',
+                                    title: 'H_pentacene.TSHS',
                                   }
                                 ],
                               },
@@ -38,7 +38,7 @@ let fileTreeAll = function() {
                                 title: 'phonons/',
                                 children: [
                                   {
-                                    title: 'dyn_matrix.json',
+                                    title: 'dyn_matrix.dat',
                                   }
                                 ],
                               }
@@ -59,7 +59,7 @@ let fileTreeAll = function() {
                                 title: 'hopping/',
                                 children: [
                                   {
-                                    title: 'prop-kernel.json',
+                                    title: 'prop_kernel.dat',
                                   }
                                 ],
                               }
@@ -69,7 +69,7 @@ let fileTreeAll = function() {
                           title: 'mc_output/',
                           children: [
                               {
-                                title: 'mobilities.json',
+                                title: 'mobilities.dat',
                               }
                           ],
                       },
